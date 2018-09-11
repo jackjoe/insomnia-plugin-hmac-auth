@@ -31,6 +31,7 @@ module.exports = function(context) {
   console.log(`[hmac] Injecting auth header Authorization: ${authToken}`)
   console.log(`[hmac] Injecting md5 header  Content-MD5: ${md5Hash}`)
 
+  context.request.setHeader('Content-Type', contentType)
   context.request.setHeader('X-Date', xDate)
   context.request.setHeader(
     'X-TIME_ZONE',
