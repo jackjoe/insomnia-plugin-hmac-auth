@@ -5,8 +5,8 @@ This plugin enables HMAC based authentication for requests in [Insomnia REST Cli
 ## Install (Source)
 
 ```
-mkdir -p $HOME/Library/Application Support/Insomnia/plugins
-cd $HOME/Library/Application Support/Insomnia/plugins
+mkdir -p $HOME/Library/Application\ Support/Insomnia/plugins
+cd $HOME/Library/Application\ Support/Insomnia/plugins
 git clone https://github.com/sujrd/insomnia-plugin-hmac-auth.git insomnia-plugin-hmac-auth
 cd insomnia-plugin-hmac-auth
 npm install
