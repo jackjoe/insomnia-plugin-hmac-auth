@@ -1,10 +1,10 @@
 {
   "name": "insomna-plugin-hmac-auth",
-  "version": "1.0.0",
-  "author": "Horacio Sanson <horacio@allm.net>",
+  "version": "1.0.1",
+  "author": "Horacio Sanson <horacio@allm.net>, Jack + Joe <randy@jackjoe.be>",
   "description": "HMAC Based Authentication",
   "license": "MIT",
-  "repository": "https://github.com/sujrd/insomnia-plugin-hmac-auth",
+  "repository": "https://github.com/jackjoe/insomnia-plugin-hmac-auth",
   "bugs": {
     "url": "https://github.com/getinsomnia/insomnia"
   },
