@@ -1,4 +1,3 @@
-const CryptoJS = require('crypto-js')
 const MD5 = require('crypto-js/md5')
 const Base64 = require('crypto-js/enc-base64')
 const hmacSHA256 = require('crypto-js/hmac-sha256')
