@@ -32,9 +32,8 @@ module.exports = function(context) {
 
   context.request.setHeader('Content-Type', contentType)
   context.request.setHeader('X-Date', xDate)
-  context.request.setHeader('X-MD5', md5Hash)
   context.request.setHeader(
-    'X-TIME_ZONE',
+    'X-TIME-ZONE',
     -1 * new Date().getTimezoneOffset() / 60
   )
   context.request.setHeader('Authorization', authToken)
