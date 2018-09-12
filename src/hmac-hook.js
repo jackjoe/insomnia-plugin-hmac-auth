@@ -1,6 +1,5 @@
 const CryptoJS = require('crypto-js')
 const MD5 = require('crypto-js/md5')
-const Hex = require('crypto-js/enc-hex')
 const Base64 = require('crypto-js/enc-base64')
 const hmacSHA256 = require('crypto-js/hmac-sha256')
 
@@ -24,7 +23,7 @@ module.exports = function(context) {
 
   const md5Hash = Base64.stringify(MD5(request.getBodyText()))
   const canonicalStr = [method, contentType, md5Hash, path, xDate].join()
-  const signature = Hex.stringify(hmacSHA256(canonicalStr, secret))
+  const signature = Base64.stringify(hmacSHA256(canonicalStr, secret))
   const authToken = 'APIAuth ' + uuid + ':' + signature
 
   console.log(`[hmac] Injecting date header X-Date: ${xDate}`)
