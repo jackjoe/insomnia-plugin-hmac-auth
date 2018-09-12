@@ -22,7 +22,7 @@ module.exports = function(context) {
   const path = url.pathname + url.search
 
   const md5Hash = Base64.stringify(MD5(request.getBodyText()))
-  const canonicalStr = [method, contentType, md5Hash, path, xDate].join()
+  const canonicalStr = [method, contentType, md5Hash, path, xDate].join('')
   const signature = Base64.stringify(hmacSHA256(canonicalStr, secret))
   const authToken = 'APIAuth ' + uuid + ':' + signature
 
