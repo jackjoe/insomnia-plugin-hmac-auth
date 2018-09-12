@@ -14,7 +14,7 @@ module.exports = function(context) {
   }
 
   const method = request.getMethod()
-  const xDate = new Date().toUTCString()
+  const xDate = new Date().toISOString()
   const contentType = request.getHeader('Content-Type')
 
   const url = document.createElement('a')
