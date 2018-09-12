@@ -23,7 +23,7 @@ In you environment add these variables:
 ```
 {
   HMAC_username: "user name",
-  HAMC_secret: "sign secret"
+  HMAC_secret: "sign secret"
 }
 ```
 
