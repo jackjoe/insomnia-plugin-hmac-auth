@@ -5,10 +5,10 @@ const hmacSHA256 = require('crypto-js/hmac-sha256')
 module.exports = function(context) {
   const request = context.request
 
-  const uuid = request.getEnvironmentVariable('UUID')
+  const username = request.getEnvironmentVariable('USERNAME')
   const secret = request.getEnvironmentVariable('SECRET')
 
-  if (uuid === undefined || secret === undefined) {
+  if (username === undefined || secret === undefined) {
     return
   }
 
@@ -23,7 +23,7 @@ module.exports = function(context) {
   const md5Hash = Base64.stringify(MD5(request.getBodyText()))
   const canonicalStr = [method, contentType, md5Hash, path, xDate].join('')
   const signature = Base64.stringify(hmacSHA256(canonicalStr, secret))
-  const authToken = 'APIAuth ' + uuid + ':' + signature
+  const authToken = 'APIAuth ' + username + ':' + signature
 
   console.log(`[hmac] Injecting date header X-Date: ${xDate}`)
   console.log(`[hmac] Injecting auth header Authorization: ${authToken}`)
