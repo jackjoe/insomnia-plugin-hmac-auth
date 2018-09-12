@@ -23,7 +23,7 @@ module.exports = function(context) {
   const md5Hash = Base64.stringify(MD5(request.getBodyText()))
   const canonicalStr = [method, contentType, md5Hash, path, xDate].join('')
   const signature = Base64.stringify(hmacSHA256(canonicalStr, secret))
-  const authToken = 'APIAuth ' + username + ':' + signature
+  const authToken = 'APIAuth-HMAC-SHA256 ' + username + ':' + signature
 
   console.log(`[hmac] Injecting date header X-Date: ${xDate}`)
   console.log(`[hmac] Injecting auth header Authorization: ${authToken}`)

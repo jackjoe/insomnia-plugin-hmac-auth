@@ -31,7 +31,7 @@ Once these are defined, the plugin will add the following headers to every reque
 
 ```
 X-Date: [date time of the request]
-Authorization: APIAuth [username]:[signature]
+Authorization: APIAuth-HMAC-SHA256 [username]:[signature]
 ```
 
 The signature is build up by 5 components that are glued together and hashed with the hmac sha-256 algorithm and the APP secret:
