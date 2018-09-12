@@ -5,8 +5,8 @@ const hmacSHA256 = require('crypto-js/hmac-sha256')
 module.exports = function(context) {
   const request = context.request
 
-  const username = request.getEnvironmentVariable('USERNAME')
-  const secret = request.getEnvironmentVariable('SECRET')
+  const username = request.getEnvironmentVariable('HMAC_username')
+  const secret = request.getEnvironmentVariable('HMAC_secret')
 
   if (username === undefined || secret === undefined) {
     return
