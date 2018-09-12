@@ -28,14 +28,19 @@ module.exports = function(context) {
 
   console.log(`[hmac] Injecting date header X-Date: ${xDate}`)
   console.log(`[hmac] Injecting auth header Authorization: ${authToken}`)
-  console.log(`[hmac] Injecting md5 header  Content-MD5: ${md5Hash}`)
+  console.log(`[hmac] Injecting md5 header Content-MD5: ${md5Hash}`)
 
   context.request.setHeader('Content-Type', contentType)
   context.request.setHeader('X-Date', xDate)
+  context.request.setHeader('X-MD5', md5Hash)
   context.request.setHeader(
     'X-TIME_ZONE',
     -1 * new Date().getTimezoneOffset() / 60
   )
   context.request.setHeader('Authorization', authToken)
-  context.request.setHeader('Content-MD5', md5Hash)
+
+  // Debug
+  context.request.setHeader('X-Debug-Path', path)
+  context.request.setHeader('X-Debug-Method', method)
+  context.request.setHeader('X-Debug-Canonical', canonicalStr)
 }
