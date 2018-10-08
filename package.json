@@ -13,7 +13,6 @@
     "name": "hmac-auth",
     "description": "HMAC Based Authentication"
   },
-
   "dependencies": {
     "crypto-js": "3.1.9-1"
   },
