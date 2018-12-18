@@ -14,7 +14,8 @@
     "description": "HMAC Based Authentication"
   },
   "dependencies": {
-    "crypto-js": "3.1.9-1"
+    "crypto-js": "3.1.9-1",
+    "js-base64": "^2.5.0"
   },
-  "devDependencies": []
+  "devDependencies": {}
 }

@@ -1,5 +1,5 @@
 const MD5 = require('crypto-js/md5')
-const Base64 = require('crypto-js/enc-base64')
+const Base64 = require('js-base64').Base64
 const hmacSHA256 = require('crypto-js/hmac-sha256')
 
 module.exports = function(context) {
@@ -20,14 +20,16 @@ module.exports = function(context) {
   url.href = request.getUrl()
   const path = url.pathname + url.search
 
-  const md5Hash = Base64.stringify(MD5(request.getBodyText()))
+  const md5Hash = MD5(request.getBodyText())
+	const contentHash = Base64.encode(md5Hash)
   const canonicalStr = [method, contentType, md5Hash, path, xDate].join('')
-  const signature = Base64.stringify(hmacSHA256(canonicalStr, secret))
+  const signature = Base64.encode(hmacSHA256(canonicalStr, secret))
   const authToken = 'APIAuth-HMAC-SHA256 ' + username + ':' + signature
 
   console.log(`[hmac] Injecting date header X-Date: ${xDate}`)
   console.log(`[hmac] Injecting auth header Authorization: ${authToken}`)
-  console.log(`[hmac] Injecting md5 header Content-MD5: ${md5Hash}`)
+	console.log(`[hmac] Injecting md5 header Content-MD5: ${md5Hash}`)  
+	console.log(`[hmac] Injecting content hash header Content-MD5: ${contentHash}`)
 
   context.request.setHeader('Content-Type', contentType)
   context.request.setHeader('X-Date', xDate)
