@@ -22,8 +22,8 @@ In you environment add these variables:
 
 ```
 {
-  HMAC_username: "user name",
-  HMAC_secret: "sign secret"
+  "HMAC_username": "user name",
+  "HMAC_secret": "sign secret"
 }
 ```
 
